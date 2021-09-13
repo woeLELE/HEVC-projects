@@ -1,7 +1,7 @@
 # HEVC-projects
 如果不想看代码，可以查看《HEVC项目经历》，该文档中也有关于HEVC编码过程的介绍，可以使您更好地理解项目
 
-TencCU是HM编码器中一个非常重要的类，其中最重要的两个方法是
+TEncCU是HM编码器中一个非常重要的类，其中最重要的两个方法是
 ```cpp
 Void TEncCu::compressCtu(TComDataCU* pCtu)
 Void TEncCu::xCompressCU(TComDataCU*& rpcBestCU, TComDataCU*& rpcTempCU, const UInt uiDepth DEBUG_STRING_FN_DECLARE(sDebug_), PartSize eParentPartSize)
