@@ -1,4 +1,4 @@
-# HEVC-projects
+# HEVC_projects
 如果不想看代码，可以查看《HEVC项目经历》，该文档中也有关于HEVC编码过程的介绍，可以使您更好地理解项目
 
 TEncCU是HM编码器中一个非常重要的类，其中最重要的两个方法是
