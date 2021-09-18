@@ -5,14 +5,14 @@
 
 
 //ofstream Tout("Tfile2.txt");
-//ofstream Rout("G:\\HEVC\\±àÂëÆ÷\\Êä³ö\\²Ğ²îÊı¾İ¼¯.txt");
-//ofstream Lout("G:\\HEVC\\±àÂëÆ÷\\Êä³ö\\Éî¶È.txt");
+//ofstream Rout("G:\\HEVC\\ç¼–ç å™¨\\è¾“å‡º\\æ®‹å·®æ•°æ®é›†.txt");
+//ofstream Lout("G:\\HEVC\\ç¼–ç å™¨\\è¾“å‡º\\æ·±åº¦.txt");
 
 
-//ofstream Out("G:\\HEVC\\±àÂëÆ÷\\Êä³ö\\FUNCsµ÷ÊÔ½á¹û.txt");
-ofstream Out("FUNCsµ÷ÊÔ½á¹û.txt");
+//ofstream Out("G:\\HEVC\\ç¼–ç å™¨\\è¾“å‡º\\FUNCsè°ƒè¯•ç»“æœ.txt");
+ofstream Out("FUNCsè°ƒè¯•ç»“æœ.txt");
 
-double** subD(int(*p)[64])	// ¼ÆËãÃ¿¸ö32CUÏÂµÄËÄ¸ö×Ó¿éÖ®¼äµÄÎÆÀí¸´ÔÓ¶È·½²î
+double** subD(int(*p)[64])	// è®¡ç®—æ¯ä¸ª32CUä¸‹çš„å››ä¸ªå­å—ä¹‹é—´çš„çº¹ç†å¤æ‚åº¦æ–¹å·®
 {
 	double** res = new double* [4];
 	for (int i = 0; i < 4; i++)
@@ -20,15 +20,15 @@ double** subD(int(*p)[64])	// ¼ÆËãÃ¿¸ö32CUÏÂµÄËÄ¸ö×Ó¿éÖ®¼äµÄÎÆÀí¸´ÔÓ¶È·½²î
 	int templ = 32;
 	double s = 0, v2 = 0, s3 = 0, s4 = 0, u = 0;
 	double fc = 0, pd = 0, fd = 0;
-	int sp[4][2] = { {0, 0}, {0, templ}, {templ, 0}, {templ, templ} };   // ¸÷CUµÄÆğµãĞĞÊıºÍÁĞÊı
+	int sp[4][2] = { {0, 0}, {0, templ}, {templ, 0}, {templ, templ} };   // å„CUçš„èµ·ç‚¹è¡Œæ•°å’Œåˆ—æ•°
 	int m, n, i, j, r1;
-	for (r1 = 0; r1 < 4; r1++)		// ¶ÔÓÚCTUÖĞµÄËÄ¸ö32CU
+	for (r1 = 0; r1 < 4; r1++)		// å¯¹äºCTUä¸­çš„å››ä¸ª32CU
 	{
-		double a[4][2];		// ÓÃÀ´´æ´¢µ±Ç°32CUÖĞµÄËÄ¸ö×Ó¿é¸÷×ÔµÄ3¸öÎÆÀíÌØÕ÷Öµ£¬ÓÃÒÔ¼ÆËãËüÃÇÖ®¼äµÄ·½²î
-		int x = sp[r1][0];	// µ±Ç°CUÔÚCTUÖĞĞĞÊıµÄÆğµã
-		int y = sp[r1][1];	// µ±Ç°CUÔÚCTUÖĞÁĞÊıµÄÆğµã
-		int k = 0;	// µÚk¸ö16CU
-		double total[2] = { 0 };	// ´æ´¢ËÄ¸ö16¿éµÄ2ÖÖÌØÕ÷Öµ¸÷×ÔµÄ×ÜºÍ
+		double a[4][2];		// ç”¨æ¥å­˜å‚¨å½“å‰32CUä¸­çš„å››ä¸ªå­å—å„è‡ªçš„3ä¸ªçº¹ç†ç‰¹å¾å€¼ï¼Œç”¨ä»¥è®¡ç®—å®ƒä»¬ä¹‹é—´çš„æ–¹å·®
+		int x = sp[r1][0];	// å½“å‰CUåœ¨CTUä¸­è¡Œæ•°çš„èµ·ç‚¹
+		int y = sp[r1][1];	// å½“å‰CUåœ¨CTUä¸­åˆ—æ•°çš„èµ·ç‚¹
+		int k = 0;	// ç¬¬kä¸ª16CU
+		double total[2] = { 0 };	// å­˜å‚¨å››ä¸ª16å—çš„2ç§ç‰¹å¾å€¼å„è‡ªçš„æ€»å’Œ
 		for (i = x; i < x + templ; i = i + templ / 2)
 		{
 			for (j = y; j < y + templ; j = j + templ / 2)
@@ -67,18 +67,18 @@ double** subD(int(*p)[64])	// ¼ÆËãÃ¿¸ö32CUÏÂµÄËÄ¸ö×Ó¿éÖ®¼äµÄÎÆÀí¸´ÔÓ¶È·½²î
 				//a[k][1] = pd;
 				a[k][1] = log10(fd);
 
-				for (int t = 0; t < 2; t++)		// ½«µÚk¸ö16¿éµÄÌØÕ÷Öµ¼ÆÈë×ÜºÍ
+				for (int t = 0; t < 2; t++)		// å°†ç¬¬kä¸ª16å—çš„ç‰¹å¾å€¼è®¡å…¥æ€»å’Œ
 					total[t] += a[k][t];
 				k++;
 			}
-		}	// ¼ÆËãÍê³ÉÒ»¸ö32CUÖĞµÄËÄ¸ö×Ó¿é¸÷×ÔµÄÌØÕ÷Öµ
-		double ave[2];	// ÌØÕ÷ÖµµÄÆ½¾ùÖµ
+		}	// è®¡ç®—å®Œæˆä¸€ä¸ª32CUä¸­çš„å››ä¸ªå­å—å„è‡ªçš„ç‰¹å¾å€¼
+		double ave[2];	// ç‰¹å¾å€¼çš„å¹³å‡å€¼
 		for (i = 0; i < 2; i++)
 			ave[i] = total[i] / 4;
 
-		for (i = 0; i < 2; i++)		// ¶ÔÓÚ2ÖÖÌØÕ÷Öµ
+		for (i = 0; i < 2; i++)		// å¯¹äº2ç§ç‰¹å¾å€¼
 		{
-			double temptotal = 0;	// ´æ´¢²îÆ½·½Ö®ºÍ
+			double temptotal = 0;	// å­˜å‚¨å·®å¹³æ–¹ä¹‹å’Œ
 			for (j = 0; j < 4; j++)
 			{
 				double temp = a[j][i] - ave[i];
@@ -87,24 +87,24 @@ double** subD(int(*p)[64])	// ¼ÆËãÃ¿¸ö32CUÏÂµÄËÄ¸ö×Ó¿éÖ®¼äµÄÎÆÀí¸´ÔÓ¶È·½²î
 				temptotal += temp * temp;
 			}
 			res[r1][i] = temptotal / 4;
-		}	// ¼ÆËãÍê³ÉÒ»¸ö32CUÖĞµÄÈı¸öÌØÕ÷Öµ¸÷×ÔµÄ·½²î
+		}	// è®¡ç®—å®Œæˆä¸€ä¸ª32CUä¸­çš„ä¸‰ä¸ªç‰¹å¾å€¼å„è‡ªçš„æ–¹å·®
 		//res.push_back(tempres);
 	}
 	return res;
 }
 
-vector<double> subFD_32(vector<vector<int>> p)	// ¼ÆËãÃ¿¸ö32CUÏÂµÄËÄ¸ö×Ó¿éÖ®¼äµÄÎÆÀí¸´ÔÓ¶È·½²î
+vector<double> subFD_32(vector<vector<int>> p)	// è®¡ç®—æ¯ä¸ª32CUä¸‹çš„å››ä¸ªå­å—ä¹‹é—´çš„çº¹ç†å¤æ‚åº¦æ–¹å·®
 {
-	//vector<vector<double>> res;		// ´æ´¢ËÄ¸ö32CU¸÷×ÔµÄÎÆÀí¸´ÔÓ¶È·½²î
+	//vector<vector<double>> res;		// å­˜å‚¨å››ä¸ª32CUå„è‡ªçš„çº¹ç†å¤æ‚åº¦æ–¹å·®
 	vector<double> res(3);
 	int templ = 32;
 	double s = 0, v2 = 0, s3 = 0, s4 = 0, u = 0;
 	double fc = 0, pd = 0, fd = 0;
 	int m, n, i, j, r1;
 
-	double a[4][3];		// ÓÃÀ´´æ´¢µ±Ç°32CUÖĞµÄËÄ¸ö×Ó¿é¸÷×ÔµÄ3¸öÎÆÀíÌØÕ÷Öµ£¬ÓÃÒÔ¼ÆËãËüÃÇÖ®¼äµÄ·½²î
-	int k = 0;	// µÚk¸ö16CU
-	double total[3] = { 0 };	// ´æ´¢ËÄ¸ö16¿éµÄ3ÖÖÌØÕ÷Öµ¸÷×ÔµÄ×ÜºÍ
+	double a[4][3];		// ç”¨æ¥å­˜å‚¨å½“å‰32CUä¸­çš„å››ä¸ªå­å—å„è‡ªçš„3ä¸ªçº¹ç†ç‰¹å¾å€¼ï¼Œç”¨ä»¥è®¡ç®—å®ƒä»¬ä¹‹é—´çš„æ–¹å·®
+	int k = 0;	// ç¬¬kä¸ª16CU
+	double total[3] = { 0 };	// å­˜å‚¨å››ä¸ª16å—çš„3ç§ç‰¹å¾å€¼å„è‡ªçš„æ€»å’Œ
 	for (i = 0; i < templ; i = i + templ / 2)
 	{
 		for (j = 0; j < templ; j = j + templ / 2)
@@ -150,12 +150,12 @@ vector<double> subFD_32(vector<vector<int>> p)	// ¼ÆËãÃ¿¸ö32CUÏÂµÄËÄ¸ö×Ó¿éÖ®¼äµÄ
 			a[k][1] = pd;
 			a[k][2] = log10(fd);
 
-			for (int t = 0; t < 3; t++)		// ½«µÚk¸ö16¿éµÄÌØÕ÷Öµ¼ÆÈë×ÜºÍ
+			for (int t = 0; t < 3; t++)		// å°†ç¬¬kä¸ª16å—çš„ç‰¹å¾å€¼è®¡å…¥æ€»å’Œ
 				total[t] += a[k][t];
 			k++;
 		}
-	}	// ¼ÆËãÍê³ÉÒ»¸ö32CUÖĞµÄËÄ¸ö×Ó¿é¸÷×ÔµÄÌØÕ÷Öµ
-	double ave[3];	// ÌØÕ÷ÖµµÄÆ½¾ùÖµ
+	}	// è®¡ç®—å®Œæˆä¸€ä¸ª32CUä¸­çš„å››ä¸ªå­å—å„è‡ªçš„ç‰¹å¾å€¼
+	double ave[3];	// ç‰¹å¾å€¼çš„å¹³å‡å€¼
 	for (i = 0; i < 3; i++)
 		ave[i] = total[i] / 4;
 
@@ -164,9 +164,9 @@ vector<double> subFD_32(vector<vector<int>> p)	// ¼ÆËãÃ¿¸ö32CUÏÂµÄËÄ¸ö×Ó¿éÖ®¼äµÄ
 		Out << total[i] << "---" << ave[i] << " ";
 	}
 	Out << endl;*/
-	for (i = 0; i < 3; i++)		// ¶ÔÓÚ3ÖÖÌØÕ÷Öµ
+	for (i = 0; i < 3; i++)		// å¯¹äº3ç§ç‰¹å¾å€¼
 	{
-		double temptotal;	// ´æ´¢²îÆ½·½Ö®ºÍ
+		double temptotal;	// å­˜å‚¨å·®å¹³æ–¹ä¹‹å’Œ
 		for (j = 0; j < 4; j++)
 		{
 			double temp = a[j][i] - ave[i];
@@ -175,65 +175,65 @@ vector<double> subFD_32(vector<vector<int>> p)	// ¼ÆËãÃ¿¸ö32CUÏÂµÄËÄ¸ö×Ó¿éÖ®¼äµÄ
 			temptotal += temp * temp;
 		}
 		res[i] = temptotal / 4;
-	}	// ¼ÆËãÍê³ÉÒ»¸ö32CUÖĞµÄÈı¸öÌØÕ÷Öµ¸÷×ÔµÄ·½²î
+	}	// è®¡ç®—å®Œæˆä¸€ä¸ª32CUä¸­çš„ä¸‰ä¸ªç‰¹å¾å€¼å„è‡ªçš„æ–¹å·®
 	//res.push_back(tempres);
 
 	return res;
 }
 
-vector<double> calD(vector<vector<int>>& p)	// ¼ÆËã¾Ö²¿·½²îÒÔ¼°Æ½¾ù·½²î
+vector<double> calD(vector<vector<int>>& p)	// è®¡ç®—å±€éƒ¨æ–¹å·®ä»¥åŠå¹³å‡æ–¹å·®
 {
 	int l = p.size();
 	int size = l * l;
 	vector<double> res(2);
 	vector<vector<double>> mg(l, vector<double>(l));
-	int pos[8][2] = { {-1, -1}, {-1, 0}, {-1, 1}, {0, -1}, {0, 1}, {1, -1}, {1, 0}, {1, 1} };	// ÓëÄ³Ò»ÏñËØÏàÁÚµÄ¸÷ÏñËØÏà¶ÔÎ»ÖÃ
+	int pos[8][2] = { {-1, -1}, {-1, 0}, {-1, 1}, {0, -1}, {0, 1}, {1, -1}, {1, 0}, {1, 1} };	// ä¸æŸä¸€åƒç´ ç›¸é‚»çš„å„åƒç´ ç›¸å¯¹ä½ç½®
 	for (int i = 0; i < l; i++)
 	{
 		for (int j = 0; j < l; j++)
 		{
-			int cnt = 0;	// ÔÚ·¶Î§ÄÚµÄÏàÁÚÏñËØµÄÊıÁ¿
-			double nbt = 0;	// ÏàÁÚÏñËØµÄ»Ò¶ÈÖµ×ÜºÍ
+			int cnt = 0;	// åœ¨èŒƒå›´å†…çš„ç›¸é‚»åƒç´ çš„æ•°é‡
+			double nbt = 0;	// ç›¸é‚»åƒç´ çš„ç°åº¦å€¼æ€»å’Œ
 			for (int k = 0; k < 8; k++)
 			{
-				int x = i + pos[k][0];	// ÏàÁÚÏñËØµÄºá×ø±ê
-				int y = j + pos[k][1];	// ÏàÁÚÏñËØµÄ×İ×ø±ê
-				if (x >= 0 && x < l && y >= 0 && y < l)	// Èç¹û¸ÃÏàÁÚÏñËØÔÚ·¶Î§ÄÚ
+				int x = i + pos[k][0];	// ç›¸é‚»åƒç´ çš„æ¨ªåæ ‡
+				int y = j + pos[k][1];	// ç›¸é‚»åƒç´ çš„çºµåæ ‡
+				if (x >= 0 && x < l && y >= 0 && y < l)	// å¦‚æœè¯¥ç›¸é‚»åƒç´ åœ¨èŒƒå›´å†…
 				{
 					nbt += p[x][y];
 					cnt++;
 				}
-			}	// ¼ÆËãÍê³ÉÂú×ãÌõ¼şµÄi,jÎ»ÖÃµÄÏàÁÚÏñËØµÄÊıÁ¿ÒÔ¼°ÏàÁÚÏñËØµÄ»Ò¶ÈÖµ×ÜºÍ
+			}	// è®¡ç®—å®Œæˆæ»¡è¶³æ¡ä»¶çš„i,jä½ç½®çš„ç›¸é‚»åƒç´ çš„æ•°é‡ä»¥åŠç›¸é‚»åƒç´ çš„ç°åº¦å€¼æ€»å’Œ
 			mg[i][j] = nbt / (double)cnt;
 		}
 		//mg.push_back(temp);
 	}
 
-	// ÀûÓÃpºÍmgÀ´¼ÆËãneighboring mean squared error(NMSE)
-	double va = 0;    // ¼ÇÂ¼²îÆ½·½µÄ×ÜºÍ
+	// åˆ©ç”¨på’Œmgæ¥è®¡ç®—neighboring mean squared error(NMSE)
+	double va = 0;    // è®°å½•å·®å¹³æ–¹çš„æ€»å’Œ
 	int cnt1 = 0;
 	int cnt2 = 0;
-	int temp_gray = 0;        // ÓÃÀ´ÁÙÊ±¼ÇÂ¼¸÷¸öCUÖĞµÄ»Ò¶ÈÖµµÄ×ÜºÍ
-	double temp = 0;  // ÁÙÊ±¼ÇÂ¼²îÆ½·½µÄºÍ
+	int temp_gray = 0;        // ç”¨æ¥ä¸´æ—¶è®°å½•å„ä¸ªCUä¸­çš„ç°åº¦å€¼çš„æ€»å’Œ
+	double temp = 0;  // ä¸´æ—¶è®°å½•å·®å¹³æ–¹çš„å’Œ
 
 	for (int i = 0; i < l; i++)
 	{
 		for (int j = 0; j < l; j++)
 		{
-			// ´¦Àí¾Ö²¿·½²î
+			// å¤„ç†å±€éƒ¨æ–¹å·®
 			temp_gray += p[i][j];
-			double temp = (double(p[i][j]) - mg[i][j]) * (double(p[i][j]) - mg[i][j]);
+			double temp = ((double)(p[i][j]) - mg[i][j]) * ((double)(p[i][j]) - mg[i][j]);
 			va += temp;
 
 		}
 	}
 
-	double ave_gray = double(temp_gray) / double(size);		// ¸ÃCUÖĞµÄÆ½¾ù»Ò¶ÈÖµ
+	double ave_gray = (double)temp_gray / (double)size;		// è¯¥CUä¸­çš„å¹³å‡ç°åº¦å€¼
 	for (int i = 0; i < l; i++)
 	{
 		for (int j = 0; j < l; j++)
 		{
-			// ´¦ÀíÆ½¾ù·½²î
+			// å¤„ç†å¹³å‡æ–¹å·®
 			double td = ((double)(p[i][j]) - ave_gray);
 			temp += td * td;
 		}
@@ -243,7 +243,7 @@ vector<double> calD(vector<vector<int>>& p)	// ¼ÆËã¾Ö²¿·½²îÒÔ¼°Æ½¾ù·½²î
 	return res;
 }
 
-vector<double> SAGD(vector<vector<int>>& p)		// ¼ÆËã·½Ïò¸´ÔÓ¶ÈÒÔ¼°·½Ïò¸´ÔÓ¶È·½²î
+vector<double> SAGD(vector<vector<int>>& p)		// è®¡ç®—æ–¹å‘å¤æ‚åº¦ä»¥åŠæ–¹å‘å¤æ‚åº¦æ–¹å·®
 {
 	int l = p.size();
 	int size = l * l;
@@ -251,9 +251,9 @@ vector<double> SAGD(vector<vector<int>>& p)		// ¼ÆËã·½Ïò¸´ÔÓ¶ÈÒÔ¼°·½Ïò¸´ÔÓ¶È·½²î
 	int subsize = subl * subl;
 	vector<double> res(2);
 
-	int p12[4][4] = { {0, -1, 0, 1}, {-1, 0, 1, 0}, {-1, -1, 1, 1}, {-1, 1, 1, -1} };	// µÚÒ»¸öÎ¬¶ÈÎªËÄ¸ö·½Ïò£¬µÚ¶ş¸öÎ¬¶ÈÎª¸Ã·½Ïò¶ÔÓ¦µÄÁ½¸öÏñËØÏà¶ÔÎ»ÖÃ×ø±ê
+	int p12[4][4] = { {0, -1, 0, 1}, {-1, 0, 1, 0}, {-1, -1, 1, 1}, {-1, 1, 1, -1} };	// ç¬¬ä¸€ä¸ªç»´åº¦ä¸ºå››ä¸ªæ–¹å‘ï¼Œç¬¬äºŒä¸ªç»´åº¦ä¸ºè¯¥æ–¹å‘å¯¹åº”çš„ä¸¤ä¸ªåƒç´ ç›¸å¯¹ä½ç½®åæ ‡
 
-	vector<vector<vector<int>>> dis(4, vector<vector<int>>(l, vector<int>(l)));			// ËÄ¸ö·½ÏòÉÏµÄÃ¿¸öÏñËØµãµÄÌİ¶È
+	vector<vector<vector<int>>> dis(4, vector<vector<int>>(l, vector<int>(l)));			// å››ä¸ªæ–¹å‘ä¸Šçš„æ¯ä¸ªåƒç´ ç‚¹çš„æ¢¯åº¦
 	for (int m = 0; m < 4; m++)
 	{
 		for (int i = 0; i < l; i++)
@@ -280,35 +280,35 @@ vector<double> SAGD(vector<vector<int>>& p)		// ¼ÆËã·½Ïò¸´ÔÓ¶ÈÒÔ¼°·½Ïò¸´ÔÓ¶È·½²î
 			}
 			//Out << endl;
 		}
-	}	// µÃµ½Ã¿¸öÏñËØÔÚËÄ¸ö·½ÏòÏÂµÄÌİ¶È
+	}	// å¾—åˆ°æ¯ä¸ªåƒç´ åœ¨å››ä¸ªæ–¹å‘ä¸‹çš„æ¢¯åº¦
 
-	int subpos[4][2] = { {0, 0}, {0, subl}, {subl, 0}, {subl, subl} };	// ¸÷¸ö×ÓCUÔÚÆäCUÖĞµÄÏà¶ÔÆğÊ¼Î»ÖÃ
-	double tpSubS[4] = { 0 };	// ´æ´¢¸÷¸öCUµÄ·½Ïò¸´ÔÓ¶È
-	// Çó¸÷¸öCU¼°CUµÄ·½Ïò¸´ÔÓ¶È
-	int totalDis = 0;			// ´æ´¢µ±Ç°CUµÄÃ¿¸öÏñËØµÄÌİ¶ÈÖ®ºÍ
+	int subpos[4][2] = { {0, 0}, {0, subl}, {subl, 0}, {subl, subl} };	// å„ä¸ªå­CUåœ¨å…¶CUä¸­çš„ç›¸å¯¹èµ·å§‹ä½ç½®
+	double tpSubS[4] = { 0 };	// å­˜å‚¨å„ä¸ªCUçš„æ–¹å‘å¤æ‚åº¦
+	// æ±‚å„ä¸ªCUåŠCUçš„æ–¹å‘å¤æ‚åº¦
+	int totalDis = 0;			// å­˜å‚¨å½“å‰CUçš„æ¯ä¸ªåƒç´ çš„æ¢¯åº¦ä¹‹å’Œ
 
 	for (int i = 0; i < l; i++)
-		for (int j = 0; j < l; j++)	// ¶ÔÓÚÃ¿¸öÏñËØ
-			for (int n = 0; n < 4; n++)	// ¶ÔÓÚÃ¿¸öÏñËØµÄËÄ¸ö·½Ïò
+		for (int j = 0; j < l; j++)	// å¯¹äºæ¯ä¸ªåƒç´ 
+			for (int n = 0; n < 4; n++)	// å¯¹äºæ¯ä¸ªåƒç´ çš„å››ä¸ªæ–¹å‘
 				totalDis += dis[n][i][j];
 
 	res[0] = (double)totalDis / size <= 0 ? -100 : log10((double)totalDis / size);
 
-	for (int n = 0; n < 4; n++)	// ÔÚ¸÷¸ö×ÓCUÖĞ
+	for (int n = 0; n < 4; n++)	// åœ¨å„ä¸ªå­CUä¸­
 	{
-		int p1 = subpos[n][0];	// ×ÓCUµÄÆğÊ¼Î»ÖÃ
+		int p1 = subpos[n][0];	// å­CUçš„èµ·å§‹ä½ç½®
 		int p2 = subpos[n][1];
 		for (int i = p1; i < p1 + subl; i++)
 			for (int j = p2; j < p2 + subl; j++)
 				for (int k = 0; k < 4; k++)
-					tpSubS[n] += (double)dis[k][i][j];	// ÏÈµÃµ½Ã¿¸ö×ÓCUÖĞÏñËØµÄÌİ¶È×ÜºÍ
+					tpSubS[n] += (double)dis[k][i][j];	// å…ˆå¾—åˆ°æ¯ä¸ªå­CUä¸­åƒç´ çš„æ¢¯åº¦æ€»å’Œ
 		tpSubS[n] /= (double)subsize;
 	}
 
 	double temp = 0;
-	for (int j = 0; j < 4; j++)	// ¶ÔÓÚ¸÷¸ö16CU
+	for (int j = 0; j < 4; j++)	// å¯¹äºå„ä¸ª16CU
 		temp += tpSubS[j];
-	temp /= 4.0;	// ´ú±íµ±Ç°32CUÖĞ¸÷¸ö×ÓCUµÄ·½Ïò¸´ÔÓ¶ÈµÄ¾ùÖµ
+	temp /= 4.0;	// ä»£è¡¨å½“å‰32CUä¸­å„ä¸ªå­CUçš„æ–¹å‘å¤æ‚åº¦çš„å‡å€¼
 
 	double total = 0;
 	for (int j = 0; j < 4; j++)
@@ -338,7 +338,7 @@ double ave_D(vector<vector<vector<int>>>& p, vector<int>& subAve)
 		tD += total / (h * w * 1.0);
 		cnt++;
 	}
-	//Out << "²âÊÔ½á¹û£º" << log10(tD / 4.0) << endl;
+	//Out << "æµ‹è¯•ç»“æœï¼š" << log10(tD / 4.0) << endl;
 	//for (int i = 0; i < 4; i++)
 	//{
 	//	double total = 0.0;
@@ -361,22 +361,22 @@ double ave_D(vector<vector<vector<int>>>& p, vector<int>& subAve)
 //	{
 //		for (int j = 0; j < 32; j++)
 //		{
-//			bool flag1 = false;	// crÖĞÊÇ·ñ´æ´¢ÁË¸Ã²Ğ²îÖµ
+//			bool flag1 = false;	// crä¸­æ˜¯å¦å­˜å‚¨äº†è¯¥æ®‹å·®å€¼
 //			for (int k = 0; k < cr.size(); k++)
 //			{
-//				//Output << "½øÀ´cr²ã" << endl;
+//				//Output << "è¿›æ¥crå±‚" << endl;
 //				//Output << cr.size() << endl;
-//				if (p[i][j] == cr[k][0])	// Èç¹ûµ±Ç°²Ğ²îÖµÒÑ¾­´æÔÚÓÚcrÖĞ
+//				if (p[i][j] == cr[k][0])	// å¦‚æœå½“å‰æ®‹å·®å€¼å·²ç»å­˜åœ¨äºcrä¸­
 //				{
-//					//Output << "Âú×ãÌõ¼ş" << endl;
+//					//Output << "æ»¡è¶³æ¡ä»¶" << endl;
 //					cr[k][1]++;
 //					flag1 = true;
 //					break;
 //				}
 //			}
-//			if (!flag1)	// Èç¹ûcrÖĞÃ»ÓĞ¸Ã²Ğ²îÖµ
+//			if (!flag1)	// å¦‚æœcrä¸­æ²¡æœ‰è¯¥æ®‹å·®å€¼
 //			{
-//				//Output << "²»Âú×ãÌõ¼ş" << endl;
+//				//Output << "ä¸æ»¡è¶³æ¡ä»¶" << endl;
 //				int temp[2] = { p[i][j], 1 };
 //				vector<double> tempv(temp, temp + 2);
 //				cr.push_back(tempv);
@@ -384,7 +384,7 @@ double ave_D(vector<vector<vector<int>>>& p, vector<int>& subAve)
 //		}
 //	}
 //
-//	// ÅÅĞò
+//	// æ’åº
 //	int length = cr.size();
 //	for (int i = 0; i < length - 1; i++)
 //	{
@@ -463,12 +463,12 @@ int JudgeClass(int& cnt1, int& cnt0, int depth)
 //	double* weight;
 //	if (flag1 == 1)
 //	{
-//		Out << "Éú³ÉÒ»ÀàÄ£ĞÍ" << endl;
+//		Out << "ç”Ÿæˆä¸€ç±»æ¨¡å‹" << endl;
 //		Out << cnt_train1_1 << " --- " << cnt_train1_0 << endl;
 //		weight = SetWeights(cnt_train1_1, cnt_train1_0, 1, 90, 'T', 1);
 //		CxLibLinear temp1 = GetPredictor(weight[0], weight[1]);
 //		temp1.train_model(train_xT1, train_yT1);
-//		Out << "ÑµÁ·Íê³É" << endl;
+//		Out << "è®­ç»ƒå®Œæˆ" << endl;
 //		Out << weight[0] << " ^^^ " << weight[1] << endl;
 //		res.push_back(temp1);
 //		//weight = SetWeights(cnt_train1_1, cnt_train1_0, 1, 90, 'R', 1);
@@ -479,7 +479,7 @@ int JudgeClass(int& cnt1, int& cnt0, int depth)
 //	}
 //	//else if (flag1 == 3)
 //	//{
-//	//	Out << "Éú³ÉÈıÀàÄ£ĞÍ" << endl;
+//	//	Out << "ç”Ÿæˆä¸‰ç±»æ¨¡å‹" << endl;
 //	//	weight = SetWeights(cnt_train1_1, cnt_train1_0, 0, 90, 'T', 1);
 //	//	CxLibLinear temp1 = GetPredictor(weight[0], weight[1]);
 //	//	temp1.train_model(train_xT1, train_yT1);
@@ -490,7 +490,7 @@ int JudgeClass(int& cnt1, int& cnt0, int depth)
 //	//	res.push_back(temp2);
 //	//}
 //	delete[] weight;
-//	Out << "½áÊøÉú³ÉÒ»Àà»òÈıÀàÄ£ĞÍ" << endl;
+//	Out << "ç»“æŸç”Ÿæˆä¸€ç±»æˆ–ä¸‰ç±»æ¨¡å‹" << endl;
 //	return res;
 //}
 
@@ -525,13 +525,13 @@ int JudgeClass(int& cnt1, int& cnt0, int depth)
 CxLibLinear CreateModel(vector<vector<double>>& x, vector<double>& y, int& cnt1, int& cnt0, int label, int demand, char TorR, int D, int qp)
 {
 	vector<double> weight;
-	weight = SetWeights(cnt1, cnt0, label, demand, TorR, D, qp);	// ÉèÖÃÈ¨Öµ
+	weight = SetWeights(cnt1, cnt0, label, demand, TorR, D, qp);	// è®¾ç½®æƒå€¼
 	CxLibLinear linear = GetPredictor(weight[0], weight[1]);
 	linear.train_model(x, y);
 	return linear;
 }
 
-// ¸ù¾İÑµÁ·¼¯ÖĞÕıÀàºÍ¸ºÀàµÄÑù±¾ÊıÈ·¶¨È¨Öµ±È
+// æ ¹æ®è®­ç»ƒé›†ä¸­æ­£ç±»å’Œè´Ÿç±»çš„æ ·æœ¬æ•°ç¡®å®šæƒå€¼æ¯”
 vector<double> SetWeights(int cnt1, int cnt0, int label, int demand, char TorR, int D, int qp)
 {
 	vector<double> weight(2);
@@ -744,22 +744,22 @@ vector<double> SetWeights(int cnt1, int cnt0, int label, int demand, char TorR, 
 	return weight;
 }
 
-// ·µ»ØÒ»¸öÔ¤²âÆ÷
+// è¿”å›ä¸€ä¸ªé¢„æµ‹å™¨
 CxLibLinear GetPredictor(double weight1, double weight0)
 {
 	CxLibLinear linear;
 	parameter param;
 	param.solver_type = L2R_LR;
-	param.eps = 0.001;	/* stopping criteria Í£Ö¹µü´úµÄ±ê×¼£¨¾«¶È£©*/
-	param.C = 2;			/*Î¥·¨Ô¼ÊøºóµÄ´ú¼Û*/
-	param.nr_weight = 2;	/*ÓÃÓÚ¸Ä±äÄ³Ğ©Àà±ğµÄ³Í·££¬ÈçºÎÄã²»Ïë¸Ä±äÈÎºÎÀàĞÍµÄ³Í·££¬Ö»Òª°Ñnr_weightÉèÖÃÎª0¡£*/
+	param.eps = 0.001;	/* stopping criteria åœæ­¢è¿­ä»£çš„æ ‡å‡†ï¼ˆç²¾åº¦ï¼‰*/
+	param.C = 2;			/*è¿æ³•çº¦æŸåçš„ä»£ä»·*/
+	param.nr_weight = 2;	/*ç”¨äºæ”¹å˜æŸäº›ç±»åˆ«çš„æƒ©ç½šï¼Œå¦‚ä½•ä½ ä¸æƒ³æ”¹å˜ä»»ä½•ç±»å‹çš„æƒ©ç½šï¼Œåªè¦æŠŠnr_weightè®¾ç½®ä¸º0ã€‚*/
 	param.weight_label = Malloc(int, 2);
 	param.weight_label[0] = 1;
 	param.weight_label[1] = 0;
 	param.weight = Malloc(double, 2);
 	param.weight[0] = weight1;
 	param.weight[1] = weight0;
-	param.p = 0.001;			/*Ö§³ÖÏòÁ¿»Ø¹éËğÊ§µÄÁéÃô¶È*/
+	param.p = 0.001;			/*æ”¯æŒå‘é‡å›å½’æŸå¤±çš„çµæ•åº¦*/
 	param.init_sol = NULL;
 
 	linear.init_linear_param(param);
@@ -776,7 +776,7 @@ CxLibLinear GetPredictor(double weight1, double weight0)
 //			value = linear.do_predict(xT[i], prob_est);
 //		else if (TorR == 'R')
 //			value = linear.do_predict(xR[i], prob_est);
-//		// Èç¹ûÔ¤²âÕıÈ·
+//		// å¦‚æœé¢„æµ‹æ­£ç¡®
 //
 //		if (value == target)
 //		{
