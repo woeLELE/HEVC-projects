@@ -107,12 +107,12 @@ vector<double> calD(vector<vector<int>>& p)	// 计算局部方差以及平均方
 		{
 			// 处理局部方差
 			temp_gray += p[i][j];
-			double temp = (double(p[i][j]) - mg[i][j]) * (double(p[i][j]) - mg[i][j]);
+			double temp = ((double)(p[i][j]) - mg[i][j]) * ((double)(p[i][j]) - mg[i][j]);
 			va += temp;
 		}
 	}
 
-	double ave_gray = double(temp_gray) / double(size);		// 该CU中的平均灰度值
+	double ave_gray = (double)temp_gray / (double)size;		// 该CU中的平均灰度值
 	for (int i = 0; i < l; i++)
 	{
 		for (int j = 0; j < l; j++)
